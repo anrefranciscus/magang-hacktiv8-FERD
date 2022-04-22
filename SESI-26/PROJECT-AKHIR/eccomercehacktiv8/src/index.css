@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background:#F1F1F1 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.0275em;
+}
+.navbar-brand{
+  font-family: 'Red Hat Display';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  color: #0C2146;
+}
+
+.card {
+  border-radius: 8px !important;
+  background: #FCFCFC;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px !important;
+}
+.card-img-top {
+  width: 50% !important; 
+
+}
+.card-title {
+  font-size: 15px;
+}
+.text-description {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #4F4F4F;
+}
+
+.btn-submit {
+ 
+}
