@@ -5,13 +5,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import App from './App';
-import {AuthProvider} from "./context/AuthProvider";
-
+import {Provider} from "react-redux";
+import store from "./redux/store";
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Provider store={store}>
       <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

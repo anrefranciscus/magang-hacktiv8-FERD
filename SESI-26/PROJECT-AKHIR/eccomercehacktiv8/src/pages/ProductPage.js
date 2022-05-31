@@ -1,44 +1,34 @@
 import axios from "../api/axios";
-
+import {useSelector, useDispatch} from "react-redux";
 import { useEffect, useState } from "react";
+import { setProducts } from "../redux/actions/productActions";
 import { Fragment } from "react";
 import CardShop from "../components/CardShop/CardShop"
 import Header from "../components/Header/Header";
 
 function ProductPage(){
+    const products = useSelector((state) => state.allProducts.products);
+    const dispatch = useDispatch();
     const PRODUCT_URL = "/products";
-    const ACCESS_TOKEN = localStorage.getItem("token");
-    const [products, setProducts] = useState([]);
-    useEffect(()=>{
-        fetchAllProducts();
-    },[]);
-
-    const fetchAllProducts = () => {
-        try {
-            axios
-            .get(PRODUCT_URL,{headers: {Authorization: ACCESS_TOKEN}})
-            .then((res)=>{
-                console.log(res.data);
-                return setProducts(res.data);
-            })
-            .catch((err)=>{
-              console.log("Product tidak ditemukan");  
-            })
-        } catch (error) {
-            console.log(error);
-        }
+    const fetchProducts = async () => {
+        const response = await axios
+        .get(PRODUCT_URL)
+        .catch((err)=>{
+            console.log(err);
+        });
+        dispatch(setProducts(response.data));
     }
+    
+    useEffect(()=> {
+        fetchProducts();
+    },[]);
     return(
         <>
 
             <Header/>
             <div className="container">
             <div className="row d-flex">
-            {products.map((product, index) =>{
-                return (
-                    <CardShop product={product} key={index}/>
-                )
-            })}        
+                <CardShop />
             </div>
             </div>
         </>
